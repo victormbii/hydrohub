@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Orders</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h2 class="mb-4">All Customer Orders</h2>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer Mobile</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Total (KES)</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+          <tr>
+            <td><%= order.orderId %></td>
+            <td><%= order.mobileno %></td>
+            <td><%= order.productName %></td>
+            <td><%= order.quantity %></td>
+            <td>KES <%= order.quantity * order.price %></td>
+            <td><%= new Date(order.orderDate).toLocaleString() %></td>
+            <td><%= order.status %></td>
+            <td>
+              <form action="/admin/orders/update" method="POST" class="form-inline">
+                <input type="hidden" name="orderId" value="<%= order.orderId %>">
+                <select name="status" class="form-control mr-2">
+                  <option value="pending" <%= order.status === 'pending' ? 'selected' : '' %>>Pending</option>
+                  <option value="delivered" <%= order.status === 'delivered' ? 'selected' : '' %>>Delivered</option>
+                </select>
+                <button type="submit" class="btn btn-sm btn-primary">Update</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <a href="/admin/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+  </div>
+
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery-3.4.1.min.js"></script>
+</body>
+</html>

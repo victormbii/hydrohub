@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/customCSS/Login.css">
+    <link rel="stylesheet" href="/customCSS/common.css">
+
+    <title>Admin - Water Delivery</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row box">
+        <div class="col">
+          <div class="row">
+            <form class="myform" action="/admin/login" method="POST">
+              <!-- Username Field -->
+              <div class="form-group">
+                <span class="mylabel">Username</span>
+                <span class="error"><%= error.usernameError %></span>
+                <input type="text" name="username" value="<%= user.username %>" class="form-control form-control-sm" required>
+              </div>
+
+              <!-- Password Field -->
+              <div class="form-group">
+                <span class="mylabel">Password</span>
+                <span class="error"><%= error.passwordError %></span>
+                <input type="password" name="password" value="<%= user.password %>" class="form-control form-control-sm" required>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-dark font-weight-bold register-button shadow-sm ml-4">Admin Login</button>
+              </div>       
+            </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+  </body>
+</html>

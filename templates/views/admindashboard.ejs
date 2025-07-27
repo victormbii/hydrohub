@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/customCSS/common.css">
+  <style>
+    body {
+      padding-top: 60px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center mb-4">Welcome, Admin</h2>
+
+    <div class="row">
+      <!-- Total Users -->
+      <div class="col-md-4">
+        <div class="card border-primary">
+          <div class="card-body text-center">
+            <h5 class="card-title">Total Registered Users</h5>
+            <h3 class="text-primary"><%= totalUsers %></h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Products -->
+      <div class="col-md-4">
+        <div class="card border-success">
+          <div class="card-body text-center">
+            <h5 class="card-title">Total Products</h5>
+            <h3 class="text-success"><%= totalProducts %></h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Orders -->
+      <div class="col-md-4">
+        <div class="card border-warning">
+          <div class="card-body text-center">
+            <h5 class="card-title">Total Orders</h5>
+            <h3 class="text-warning"><%= totalOrders %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Pending Orders -->
+<div class="col-md-4">
+  <div class="card border-danger">
+    <div class="card-body text-center">
+      <h5 class="card-title">Pending Orders</h5>
+      <h3 class="text-danger"><%= pendingOrders %></h3>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Navigation Buttons -->
+    <div class="row mt-4">
+      <div class="col text-center">
+        <a href="/admin/users" class="btn btn-outline-primary m-2">Manage Users</a>
+        <a href="/admin/products" class="btn btn-outline-success m-2">Manage Products</a>
+        <a href="/admin/orders" class="btn btn-outline-warning m-2">Manage Orders</a>
+        <a href="/admin/logout" class="btn btn-outline-danger m-2">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Products</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Product List</h2>
+      <!-- ✅ Back to Dashboard Button -->
+      <a href="/admin/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+
+    <a href="/admin/products/add" class="btn btn-success mb-3">Add New Product</a>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th><th>Name</th><th>Price</th><th>Category</th><th>Image</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product => { %>
+          <tr>
+            <td><%= product.pId %></td>
+            <td><%= product.name %></td>
+            <td>KES <%= product.price %></td>
+            <td><%= product.category %></td>
+            <td><img src="/products/<%= product.picture %>" width="50" alt="Product Image"></td>
+            <td>
+              <a href="/admin/products/edit/<%= product.pId %>" class="btn btn-warning btn-sm">Edit</a>
+              <a href="/admin/products/delete/<%= product.pId %>" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+
